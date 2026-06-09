@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindMate AI - Your 24/7 Therapeutic Companion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2196F3',
+                        'primary-dark': '#1976D2',
+                        secondary: '#4CAF50',
+                        'soft-blue': '#E3F2FD',
+                        'soft-green': '#E8F5E9',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-primary flex items-center gap-2">
+                <span>🧠</span> MindMate AI
+            </div>
+            <nav class="hidden md:flex gap-8 list-none">
+                <li><a href="#features" class="hover:text-primary transition-colors font-medium">Features</a></li>
+                <li><a href="#how" class="hover:text-primary transition-colors font-medium">How it Works</a></li>
+                <li><a href="#pricing" class="hover:text-primary transition-colors font-medium">Pricing</a></li>
+            </nav>
+            <a href="#download" class="bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-full font-semibold transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-primary/20">
+                Get App
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-soft-blue to-white py-24 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6 text-gray-900">
+                Support that listens.<br>Anytime. Anywhere.
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
+                MindMate AI provides empathetic, research-backed psychological support and coaching on your own terms. Totally anonymous and always available.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#download" class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:-translate-y-1 shadow-xl shadow-primary/30">
+                    Start Your Journey
+                </a>
+            </div>
+        </div>
+        <!-- Decorative blobs -->
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-secondary/5 rounded-full blur-3xl"></div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose MindMate?</h2>
+                <p class="text-gray-600">A safe space for your mental well-being.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-8 rounded-3xl bg-gray-50 text-left hover:shadow-xl transition-all border border-transparent hover:border-soft-blue group">
+                    <div class="text-4xl mb-6 transform group-hover:scale-110 transition-transform">🕒</div>
+                    <h3 class="text-xl font-bold mb-3">24/7 Availability</h3>
+                    <p class="text-gray-600">No more waiting for weeks to see a professional. We are here whenever you need someone to talk to.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="p-8 rounded-3xl bg-gray-50 text-left hover:shadow-xl transition-all border border-transparent hover:border-soft-blue group">
+                    <div class="text-4xl mb-6 transform group-hover:scale-110 transition-transform">🔒</div>
+                    <h3 class="text-xl font-bold mb-3">100% Anonymous</h3>
+                    <p class="text-gray-600">Your privacy is our priority. Talk freely without judgment or stigma in a completely secure environment.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="p-8 rounded-3xl bg-gray-50 text-left hover:shadow-xl transition-all border border-transparent hover:border-soft-blue group">
+                    <div class="text-4xl mb-6 transform group-hover:scale-110 transition-transform">🌍</div>
+                    <h3 class="text-xl font-bold mb-3">Multi-language</h3>
+                    <p class="text-gray-600">Speak in your native language. Our AI understands and responds in over 15 languages fluently.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="p-8 rounded-3xl bg-gray-50 text-left hover:shadow-xl transition-all border border-transparent hover:border-soft-blue group">
+                    <div class="text-4xl mb-6 transform group-hover:scale-110 transition-transform">💡</div>
+                    <h3 class="text-xl font-bold mb-3">CBT Techniques</h3>
+                    <p class="text-gray-600">Get actionable advice and techniques based on Cognitive Behavioral Therapy and Mindfulness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section id="how" class="py-24 bg-soft-green">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">How It Works</h2>
+            <div class="flex flex-col md:flex-row gap-12 justify-center items-start">
+                <div class="flex-1 text-center group">
+                    <div class="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 group-hover:rotate-12 transition-transform">1</div>
+                    <h3 class="text-xl font-bold mb-4">Download</h3>
+                    <p class="text-gray-700">Get the app on iOS or Android and create your account in seconds.</p>
+                </div>
+                <div class="flex-1 text-center group">
+                    <div class="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 group-hover:rotate-12 transition-transform">2</div>
+                    <h3 class="text-xl font-bold mb-4">Start a Chat</h3>
+                    <p class="text-gray-700">Type how you feel. Our AI will listen and provide validating support immediately.</p>
+                </div>
+                <div class="flex-1 text-center group">
+                    <div class="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 group-hover:rotate-12 transition-transform">3</div>
+                    <h3 class="text-xl font-bold mb-4">Grow</h3>
+                    <p class="text-gray-700">Track your mood and progress over time with personalized therapeutic insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Simple Pricing</h2>
+                <p class="text-gray-600">Access mental health support without the high costs.</p>
+            </div>
+            <div class="flex flex-col lg:flex-row justify-center gap-8 items-stretch">
+                <!-- Free Plan -->
+                <div class="flex-1 max-w-sm mx-auto p-10 rounded-3xl border-2 border-gray-100 flex flex-col">
+                    <h3 class="text-2xl font-bold mb-2">Free</h3>
+                    <div class="text-4xl font-bold mb-8">$0<span class="text-lg text-gray-500">/mo</span></div>
+                    <ul class="space-y-4 mb-10 text-left flex-grow text-gray-600">
+                        <li><span class="text-secondary mr-2">✓</span> 10 messages per day</li>
+                        <li><span class="text-secondary mr-2">✓</span> Basic AI coaching</li>
+                        <li><span class="text-secondary mr-2">✓</span> Multi-language support</li>
+                    </ul>
+                    <a href="#download" class="w-full py-3 rounded-full border-2 border-primary text-primary font-bold hover:bg-primary hover:text-white transition-colors">
+                        Get Started
+                    </a>
+                </div>
+                <!-- Premium Plan -->
+                <div class="flex-1 max-w-sm mx-auto p-10 rounded-3xl border-2 border-primary bg-white shadow-2xl shadow-primary/10 flex flex-col relative scale-105 transform">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">Most Popular</div>
+                    <h3 class="text-2xl font-bold mb-2">Premium</h3>
+                    <div class="text-4xl font-bold mb-8">$9.99<span class="text-lg text-gray-500">/mo</span></div>
+                    <ul class="space-y-4 mb-10 text-left flex-grow text-gray-600">
+                        <li><span class="text-secondary mr-2">✓</span> Unlimited messages</li>
+                        <li><span class="text-secondary mr-2">✓</span> Advanced mood insights</li>
+                        <li><span class="text-secondary mr-2">✓</span> Priority AI processing</li>
+                        <li><span class="text-secondary mr-2">✓</span> Early access to features</li>
+                    </ul>
+                    <a href="#download" class="w-full py-4 rounded-full bg-primary text-white font-bold hover:bg-primary-dark transition-all shadow-lg shadow-primary/30">
+                        Try Premium
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="py-24 bg-primary text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-10">Ready to feel better?</h2>
+            <div class="flex flex-wrap justify-center gap-6">
+                <!-- App Store Button -->
+                <a href="#" class="bg-black hover:bg-gray-900 transition-colors px-8 py-3 rounded-xl flex items-center gap-4 text-left shadow-2xl">
+                    <span class="text-3xl">🍎</span>
+                    <div>
+                        <div class="text-[10px] uppercase font-bold text-gray-400">Download on the</div>
+                        <div class="text-xl font-bold leading-none">App Store</div>
+                    </div>
+                </a>
+                <!-- Play Store Button -->
+                <a href="#" class="bg-black hover:bg-gray-900 transition-colors px-8 py-3 rounded-xl flex items-center gap-4 text-left shadow-2xl">
+                    <span class="text-3xl">🤖</span>
+                    <div>
+                        <div class="text-[10px] uppercase font-bold text-gray-400">Get it on</div>
+                        <div class="text-xl font-bold leading-none">Google Play</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-50 text-center border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-xl font-bold text-primary mb-6 flex justify-center items-center gap-2">
+                <span>🧠</span> MindMate AI
+            </div>
+            <p class="text-gray-500 mb-2">&copy; 2026 MindMate AI. All rights reserved.</p>
+            <p class="text-xs text-gray-400 max-w-lg mx-auto">
+                MindMate AI is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
