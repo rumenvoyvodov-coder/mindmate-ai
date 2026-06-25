@@ -18,7 +18,7 @@ import os
 # Create database tables
 Base.metadata.create_all(bind=engine)
 
-# Rate limiter setup
+# Rate limiter setup (basic in-memory rate limiter)
 limiter = Limiter(key_func=get_remote_address)
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -58,8 +58,9 @@ app.include_router(voice.router, prefix=settings.API_V1_STR)
 
 # Mount static files
 static_dir = os.path.join(os.path.dirname(__file__), "static")
-if os.path.exists(static_dir):
-    app.mount("/static", StaticFiles(directory=static_dir), name="static")
+if not os.path.exists(static_dir):
+    os.makedirs(static_dir)
+app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
 @app.get("/")
 @limiter.limit("5/minute")
@@ -73,53 +74,19 @@ async def root(request: Request):
 async def health_check():
     return {"status": "healthy"}
 
-@app.get("/privacy", response_class=HTMLResponse)
-async def privacy_policy(request: Request, lang: str = "en"):
-    if lang == "bg":
-        return """
-        <html>
-            <head><title>Политика за поверителност - MindMate AI</title></head>
-            <body>
-                <h1>Политика за поверителност</h1>
-                <p>Вашата поверителност е важна за нас. MindMate AI не споделя вашите лични данни с трети страни.</p>
-                <p>Всички разговори са анонимни и криптирани.</p>
-            </body>
-        </html>
-        """
-    return """
-    <html>
-        <head><title>Privacy Policy - MindMate AI</title></head>
-        <body>
-            <h1>Privacy Policy</h1>
-            <p>Your privacy is important to us. MindMate AI does not share your personal data with third parties.</p>
-            <p>All conversations are anonymous and encrypted.</p>
-        </body>
-    </html>
-    """
+@app.get("/privacy")
+async def privacy():
+    privacy_path = os.path.join(static_dir, "privacy.html")
+    if os.path.exists(privacy_path):
+        return FileResponse(privacy_path)
+    return HTMLResponse("<h1>Privacy Policy</h1><p>Privacy policy content coming soon.</p>")
 
-@app.get("/terms", response_class=HTMLResponse)
-async def terms_of_service(request: Request, lang: str = "en"):
-    if lang == "bg":
-        return """
-        <html>
-            <head><title>Условия за ползване - MindMate AI</title></head>
-            <body>
-                <h1>Условия за ползване</h1>
-                <p>MindMate AI е приложение за психологическа подкрепа, базирано на изкуствен интелект.</p>
-                <p>То не заменя професионалната медицинска помощ.</p>
-            </body>
-        </html>
-        """
-    return """
-    <html>
-        <head><title>Terms of Service - MindMate AI</title></head>
-        <body>
-            <h1>Terms of Service</h1>
-            <p>MindMate AI is an AI-based psychological support application.</p>
-            <p>It does not replace professional medical help.</p>
-        </body>
-    </html>
-    """
+@app.get("/terms")
+async def terms():
+    terms_path = os.path.join(static_dir, "terms.html")
+    if os.path.exists(terms_path):
+        return FileResponse(terms_path)
+    return HTMLResponse("<h1>Terms of Service</h1><p>Terms of service content coming soon.</p>")
 
 @app.get(f"{settings.API_V1_STR}/users/me", response_model=UserResponse)
 async def read_user_me(current_user: User = Depends(get_current_user)):
