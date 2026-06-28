@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MindMate AI</string>
+    <string name="login_title">Login</string>
+    <string name="register_title">Register</string>
+    <string name="email_label">Email</string>
+    <string name="password_label">Password</string>
+    <string name="login_button">Login</string>
+    <string name="register_button">Register</string>
+    <string name="no_account">No account? Register</string>
+    <string name="already_have_account">Already have an account? Login</string>
+    <string name="name_label">Name</string>
+    <string name="language_label">Preferred Language</string>
+    <string name="chat_title">MindMate Chat</string>
+    <string name="type_message_hint">Type a message...</string>
+    <string name="send_button">Send</string>
+    <string name="settings_title">Settings</string>
+    <string name="profile_section">Profile</string>
+    <string name="voice_section">Voice</string>
+    <string name="notifications_section">Notifications</string>
+    <string name="subscription_section">Subscription</string>
+    <string name="logout_button">Logout</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="go_premium">Go Premium</string>
+    <string name="upgrade_button">Upgrade to Premium</string>
+    <string name="premium_features_title">Unlock MindMate Premium</string>
+    <string name="new_chat_title">New Chat</string>
+    <string name="chat_history_title">Chat History</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MindMate AI</string>
+    <string name="login_title">Вход</string>
+    <string name="register_title">Регистрация</string>
+    <string name="email_label">Имейл</string>
+    <string name="password_label">Парола</string>
+    <string name="login_button">Влез</string>
+    <string name="register_button">Регистрирай се</string>
+    <string name="no_account">Нямате акаунт? Регистрирайте се</string>
+    <string name="already_have_account">Вече имате акаунт? Влезте</string>
+    <string name="name_label">Име</string>
+    <string name="language_label">Предпочитан език</string>
+    <string name="chat_title">MindMate Чат</string>
+    <string name="type_message_hint">Напишете съобщение...</string>
+    <string name="send_button">Изпрати</string>
+    <string name="settings_title">Настройки</string>
+    <string name="profile_section">Профил</string>
+    <string name="voice_section">Глас</string>
+    <string name="notifications_section">Известия</string>
+    <string name="subscription_section">Абонамент</string>
+    <string name="logout_button">Изход</string>
+    <string name="privacy_policy">Политика за поверителност</string>
+    <string name="go_premium">Станете Premium</string>
+    <string name="upgrade_button">Надграждане до Premium</string>
+    <string name="premium_features_title">Отключете MindMate Premium</string>
+    <string name="new_chat_title">Нов Чат</string>
+    <string name="chat_history_title">История на чата</string>
+</resources>
