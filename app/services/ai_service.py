@@ -35,7 +35,7 @@ Always return a JSON object with the following structure:
 class AIService:
     def __init__(self):
         self.client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
-        self.model = "gpt-4-turbo-preview" # Using GPT-4 as requested
+        self.model = "gpt-4o-mini" # Fast, reliable model for production
 
     async def get_chat_response(self, messages: List[Message], language: str = "en") -> Dict[str, Any]:
         formatted_messages = [{"role": "system", "content": SYSTEM_PROMPT}]
