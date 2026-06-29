@@ -1,6 +1,6 @@
-import json
+import json, traceback
 from typing import List, AsyncIterable, Dict, Any
-from openai import AsyncOpenAI
+from openai import AsyncOpenAI, APIError, APIConnectionError
 from app.core.config import settings
 from app.schemas.chat import Message
 
@@ -34,21 +34,31 @@ Always return a JSON object with the following structure:
 
 class AIService:
     def __init__(self):
-        self.client = AsyncOpenAI(api_key=settings.OPENAI_API_KEY)
-        self.model = "gpt-4o-mini" # Fast, reliable model for production
+        key = settings.OPENAI_API_KEY
+        if not key:
+            raise ValueError("OPENAI_API_KEY is not set in environment variables")
+        self.client = AsyncOpenAI(api_key=key)
+        self.model = "gpt-4o-mini"
 
     async def get_chat_response(self, messages: List[Message], language: str = "en") -> Dict[str, Any]:
         formatted_messages = [{"role": "system", "content": SYSTEM_PROMPT}]
         for msg in messages:
             formatted_messages.append({"role": msg.role, "content": msg.content})
 
-        response = await self.client.chat.completions.create(
-            model=self.model,
-            messages=formatted_messages,
-            response_format={"type": "json_object"}
-        )
-        
-        return json.loads(response.choices[0].message.content)
+        try:
+            response = await self.client.chat.completions.create(
+                model=self.model,
+                messages=formatted_messages,
+                response_format={"type": "json_object"}
+            )
+            
+            return json.loads(response.choices[0].message.content)
+        except APIConnectionError as e:
+            raise Exception(f"Cannot connect to OpenAI API: {e}")
+        except APIError as e:
+            raise Exception(f"OpenAI API error: {e.message} (status: {e.status_code})")
+        except Exception as e:
+            raise Exception(f"Unexpected error: {traceback.format_exc()}")
 
     async def get_chat_stream(self, messages: List[Message], language: str = "en") -> AsyncIterable[str]:
         # For streaming, it's harder to return structured JSON for mood/sentiment in every chunk.
