@@ -23,7 +23,6 @@ class Settings(BaseSettings):
     DATABASE_URL: str = "sqlite:///./mindmate.db"
 
     class Config:
-        env_file = ".env"
         case_sensitive = True
 
 settings = Settings()
