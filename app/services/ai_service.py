@@ -1,6 +1,7 @@
 import json, traceback
 from typing import List, AsyncIterable, Dict, Any
-from openai import AsyncOpenAI, APIError, APIConnectionError
+from openai import AsyncOpenAI, APIError, APIConnectionError, DefaultHttpxClient
+import httpx
 from app.core.config import settings
 from app.schemas.chat import Message
 
@@ -37,7 +38,12 @@ class AIService:
         key = settings.OPENAI_API_KEY
         if not key:
             raise ValueError("OPENAI_API_KEY is not set in environment variables")
-        self.client = AsyncOpenAI(api_key=key)
+        # Custom HTTP client with longer timeouts and explicit DNS resolution
+        http_client = httpx.AsyncClient(
+            timeout=httpx.Timeout(60.0, connect=30.0),
+            follow_redirects=True
+        )
+        self.client = AsyncOpenAI(api_key=key, http_client=http_client)
         self.model = "gpt-4o-mini"
 
     async def get_chat_response(self, messages: List[Message], language: str = "en") -> Dict[str, Any]:
